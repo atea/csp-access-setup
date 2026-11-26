@@ -13,16 +13,21 @@ WorkbookRow,Customer Name,TenantId
 
 ## Preview
 
-Kjør alltid preview først:
+Kjør kommandoen fra roten av `csp-access-setup`.
+
+Kjør `.\AdminRelationship\Remove-PartnerRelationships.ps1 -CsvPath '.\AdminRelationship\customer.csv'`
 
 ```powershell
-.\removal.ps1 -CsvPath '.\cstmr.csv'
+PS C:\path\to\csp-access-setup> .\AdminRelationship\Remove-PartnerRelationships.ps1 -CsvPath '.\AdminRelationship\customer.csv'
 ```
 
 Preview:
-- Gjør ingen endringer.
-- Krever ikke access token.
-- Lager en `RelationshipRemoval-*.csv` rapport.
+
+Gjør ingen endringer.
+
+Krever ikke access token.
+
+Lager en `RelationshipRemoval-*.csv` rapport.
 
 En godkjent rad vil vise:
 
@@ -34,16 +39,18 @@ Details: No API request sent
 
 ## Execute
 
-Sett Partner Center access token:
+Kjør kommandoene fra roten av `csp-access-setup`.
+
+Sett Partner Center access token. Kjør `$env:PARTNER_CENTER_ACCESS_TOKEN = 'ACCESS_TOKEN'`
 
 ```powershell
-$env:PARTNER_CENTER_ACCESS_TOKEN = 'ACCESS_TOKEN'
+PS C:\path\to\csp-access-setup> $env:PARTNER_CENTER_ACCESS_TOKEN = 'ACCESS_TOKEN'
 ```
 
-Kjør:
+Kjør `.\AdminRelationship\Remove-PartnerRelationships.ps1 -CsvPath '.\AdminRelationship\customer.csv' -Execute`
 
 ```powershell
-.\removal.ps1 -CsvPath '.\cstmr.csv' -Execute
+PS C:\path\to\csp-access-setup> .\AdminRelationship\Remove-PartnerRelationships.ps1 -CsvPath '.\AdminRelationship\customer.csv' -Execute
 ```
 
 Scriptet viser hvor mange tenants som skal behandles.
@@ -70,7 +77,10 @@ Details: Reseller relationship removed
 
 ## Viktig
 
-- Kjør alltid Preview før Execute.
-- CSV-en bør kun inneholde tenantene som skal behandles i den aktuelle kjøringen.
-- Scriptet husker ikke hvilke tenants som er behandlet tidligere.
-- Access token er kun nødvendig ved `-Execute`.
+Kjør alltid Preview før Execute.
+
+CSV-en bør kun inneholde tenantene som skal behandles i den aktuelle kjøringen.
+
+Scriptet husker ikke hvilke tenants som er behandlet tidligere.
+
+Access token er kun nødvendig ved `-Execute`.
