@@ -1,0 +1,6 @@
+# Admin Relationship working data
+AdminRelationship/customer.csv
+AdminRelationship/RelationshipRemoval-*.csv
+
+# macOS
+.DS_Store
